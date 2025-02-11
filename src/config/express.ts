@@ -1,7 +1,8 @@
-import express, { Express, Request, Response } from "express";
+import express, { Express, NextFunction, Request, Response } from "express";
 import cors from "cors";
 import { getAllImagesFromCloudinary } from "../utils/cloudinary.methods";
 import { Logger } from "../common/logger";
+import { routes } from "../routes/v1/index";
 
 const app: Express = express();
 
@@ -24,5 +25,14 @@ app.get('/check', async (req: Request, res: Response) => {
         Logger.error(`Error getting images from cloudinary ${error.message}`)
     }
 })
+
+
+app.use('/v1', routes);
+
+app.use(function (err: any, req: Request, res: Response, next: NextFunction) {
+    console.log(err);
+    Logger.error(`Unhandled error: ${err.message}`);
+    res.status(500).json({ message: "Internal server error" });
+});
 
 export default app;

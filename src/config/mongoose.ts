@@ -5,7 +5,7 @@ import { Config } from "./env";
 export const connectToDB = () => {
 
     try {
-        const MONGODB_URI = `mongodb+srv://${Config.MONGODB.USERNAME}:${Config.MONGODB.PASSWORD}@cluster0.k4xu2.mongodb.net/devTinder`;
+        const MONGODB_URI = `mongodb+srv://${Config.MONGODB.USERNAME}:${Config.MONGODB.PASSWORD}@cluster0.k4xu2.mongodb.net/eCommmerce`;
 
         mongoose.connect(MONGODB_URI, {
             appName: 'Ecommerce'

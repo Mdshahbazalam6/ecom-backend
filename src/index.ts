@@ -11,7 +11,7 @@ dbConnetionn.on('connected', () => {
 });
 
 dbConnetionn.on('disconnected', (err: any) => {
-  Logger.error(`[database]: MongoDB got disConnected${err.message}`);
+  Logger.error(`[database]: MongoDB got disConnected ${err.message}`);
   process.exit(-1);
 });
 

@@ -1,11 +1,10 @@
 import winston from 'winston';
-// const path = require('path');
 
 // Create a logger
 export const Logger = winston.createLogger({
     level: 'info',
     format: winston.format.combine(
-        winston.format.timestamp(),
+        // winston.format.timestamp(),
         winston.format.json()
     ),
     transports: [
